@@ -24,66 +24,72 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
+    <v-app-bar :clipped-left="clipped" fixed app>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" color="orange darken-1" />
+      <!-- <v-btn
         icon
         @click.stop="miniVariant = !miniVariant"
       >
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
+      </v-btn> -->
+      <!-- <v-btn
         icon
         @click.stop="clipped = !clipped"
       >
         <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
+      </v-btn> -->
+      <!-- <v-btn
         icon
         @click.stop="fixed = !fixed"
       >
         <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
+      </v-btn> -->
+      <v-toolbar-title v-text="title" style="color:#FB8C00" />
+      <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+
+      <div class="logo" style="padding-left:3px;">
+        <!-- <img src="../assets/books.svg" alt="" /> -->
+         <v-icon color="orange darken-1">fas fa-book</v-icon>
+      </div>
+
       <v-spacer />
+  
       <v-btn
+        text
+        color="orange darken-1"
+      >
+        Dismiss 
+      </v-btn> |
+      <v-btn
+        text
+        color="orange darken-1"
+      >
+        Retry
+      </v-btn>
+      <!-- <v-btn
         icon
         @click.stop="rightDrawer = !rightDrawer"
       >
         <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>
     <v-main>
-      <v-container>
+      <!-- <v-container>
         <Nuxt />
-      </v-container>
+      </v-container> -->
+      <Nuxt/>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-    
+    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
         <v-list-item @click.native="right = !right">
           <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
+            <v-icon light> mdi-repeat </v-icon>
           </v-list-item-action>
           <v-list-item-title>Switch drawer (click me)</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
+    <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -91,38 +97,33 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       clipped: false,
       drawer: false,
       fixed: false,
-      items: [
+      items: [    
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          icon: "mdi-chart-bubble",
+          title: "Home",
+          to: "/",  
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: "mdi-chart-bubble",
+          title: "Books(Marathi)",
+          to: "/books",
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Books(Marathi)',
-          to: '/books'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Books(English)',
-          to: '/englishbooks'
+          icon: "mdi-chart-bubble",
+          title: "Books(English)",
+          to: "/englishbooks",
         },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
-    }
-  }
-}
+      title: "Imagine",
+    };
+  },
+};
 </script>

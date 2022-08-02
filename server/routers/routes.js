@@ -62,6 +62,15 @@ router.patch("/getbooks/:id",async(req,res)=>{
 
 
 // Remove = Deleteuser
+router.delete("/getbooks/:id",async(req,res)=>{
+    try{
+        const delbook = await UserBooks.findByIdAndDelete(req.params.id);
+        res.send(delbook);
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+})
 
 
 
